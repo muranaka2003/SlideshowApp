@@ -10,12 +10,14 @@ import UIKit
 class View2ViewController: UIViewController {
 
     @IBOutlet var SecondView: UIView!
+    @IBOutlet weak var View2Image: UIImageView!
+    
+    var receiveData: UIImageView! = nil // 受信イメージデータ
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(SecondView.widthAnchor)
-        print(SecondView.heightAnchor)
+        View2Image.image = receiveData!.image
         // Do any additional setup after loading the view.
     }
 

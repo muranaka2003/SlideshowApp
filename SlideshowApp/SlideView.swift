@@ -13,7 +13,7 @@ class SlideView: UIViewController {
     var dispImageNo = 2
     var PlayBool = false
     weak var timer: Timer!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +48,9 @@ class SlideView: UIViewController {
  
         // ②遷移先ViewControllerのインスタンス取得
         let nextView = storyboard.instantiateViewController(withIdentifier: "view2") as! View2ViewController
- 
+
+        nextView.receiveData = imageAria
+
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
 
@@ -56,7 +58,7 @@ class SlideView: UIViewController {
 
     
     /// 表示している画像の番号を元に画像を表示する
-    func displayImage() {
+    func  displayImage() {
 
         // 画像の名前の配列
         let imageNameArray = [
@@ -65,6 +67,7 @@ class SlideView: UIViewController {
             "IMG_3249",
             "IMG_3303"
         ]
+
 
         // 画像の番号が正常な範囲を指しているかチェック
 
@@ -86,6 +89,7 @@ class SlideView: UIViewController {
 
         // Image Viewに読み込んだ画像をセット
         imageAria.image = image
+        
         
     }
 
@@ -120,25 +124,9 @@ class SlideView: UIViewController {
         }
     }
     
-    @IBAction func OnTap2(_ sender: UITapGestureRecognizer) {
-        print("Tap")
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
-    @IBAction func onTapImage(_ sender: UITapGestureRecognizer) {
-
-        // セグエを使用して画面を遷移
-        performSegue(withIdentifier: "result", sender: nil)
-
-               // ①storyboardのインスタンス取得
-               let storyboard: UIStoryboard = self.storyboard!
-        
-               // ②遷移先ViewControllerのインスタンス取得
-               let nextView = storyboard.instantiateViewController(withIdentifier: "result") as! View2ViewController
-        
-               // ③画面遷移
-               self.present(nextView, animated: true, completion: nil)
-            }
-
     
     /*
     // MARK: - Navigation
