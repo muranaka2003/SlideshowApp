@@ -18,10 +18,7 @@ class View2ViewController: UIViewController {
         print(SecondView.heightAnchor)
         // Do any additional setup after loading the view.
     }
-    
-    func imageNo(imageNo){
-        
-    }
+
 
     /*
     // MARK: - Navigation
