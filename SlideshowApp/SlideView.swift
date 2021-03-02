@@ -28,8 +28,11 @@ class SlideView: UIViewController {
         // タップを定義
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap(sender:)))
         
+        // imageAriaのタップを有効化
+        self.imageAria.isUserInteractionEnabled = true
+        
         // viewにタップを登録
-        self.view.addGestureRecognizer(tap)
+        self.imageAria.addGestureRecognizer(tap)
         
  
 
@@ -95,14 +98,18 @@ class SlideView: UIViewController {
 
     // 「進む」ボタン押下
     @IBAction func NextPB(_ sender: Any) {
-        dispImageNo = dispImageNo + 1
-        displayImage()
+        if PlayBool == false{           // スライド中は無効
+            dispImageNo = dispImageNo + 1
+            displayImage()
+        }
     }
 
     // 「戻る」ボタン押下
     @IBAction func PrevPB(_ sender: Any) {
-        dispImageNo = dispImageNo - 1
-        displayImage()
+        if PlayBool == false{           // スライド中は無効
+            dispImageNo = dispImageNo - 1
+            displayImage()
+        }
     }
     
     @IBOutlet weak var PlayStopOutput: UIButton!
