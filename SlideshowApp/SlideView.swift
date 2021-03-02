@@ -117,9 +117,11 @@ class SlideView: UIViewController {
     @IBAction func PlayStopPB(_ sender: Any) {
         if PlayBool == false {
             PlayBool = true
+            PlayStopOutput.setTitle("停止", for: .normal)
             PlayStopOutput.backgroundColor = UIColor.systemRed
         }else{
             PlayBool = false
+            PlayStopOutput.setTitle("再生", for: .normal)
             PlayStopOutput.backgroundColor = UIColor.systemBackground
         }
     }

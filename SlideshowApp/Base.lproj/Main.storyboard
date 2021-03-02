@@ -35,8 +35,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="010-GU-uY0">
-                                <rect key="frame" x="174" y="445.33333333333331" width="66" height="30"/>
-                                <state key="normal" title="再生/停止">
+                                <rect key="frame" x="191.66666666666666" y="445.33333333333331" width="31" height="30"/>
+                                <state key="normal" title="再生">
                                     <color key="titleColor" systemColor="systemBlueColor"/>
                                 </state>
                                 <connections>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHQ-Ct-rue">
-                                <rect key="frame" x="296" y="445.33333333333331" width="31" height="30"/>
+                                <rect key="frame" x="278.66666666666669" y="445.33333333333331" width="31" height="30"/>
                                 <state key="normal" title="進む"/>
                                 <connections>
                                     <action selector="NextPB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfZ-QC-O8B"/>
