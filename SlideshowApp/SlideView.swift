@@ -44,16 +44,13 @@ class SlideView: UIViewController {
 
     /// viewをタップされた時の処理
     @objc func viewTap(sender: UITapGestureRecognizer){
-        print("タップされました")
-
+        // 自動再生をストップ
+                PlayChange(PlaySelect: false)
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
- 
         // ②遷移先ViewControllerのインスタンス取得
         let nextView = storyboard.instantiateViewController(withIdentifier: "view2") as! View2ViewController
-
         nextView.receiveData = imageAria
-
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
 
@@ -95,9 +92,8 @@ class SlideView: UIViewController {
         
         
     }
-
     // 「進む」ボタン押下
-    @IBAction func NextPB(_ sender: Any) {
+    @IBAction func actionNextPB(_ sender: Any) {
         if PlayBool == false{           // スライド中は無効
             dispImageNo = dispImageNo + 1
             displayImage()
@@ -105,31 +101,46 @@ class SlideView: UIViewController {
     }
 
     // 「戻る」ボタン押下
-    @IBAction func PrevPB(_ sender: Any) {
+    @IBAction func actionPrevPB(_ sender: Any) {
         if PlayBool == false{           // スライド中は無効
             dispImageNo = dispImageNo - 1
             displayImage()
         }
     }
+
+    @IBOutlet weak var NextPB: UIButton!
+    @IBOutlet weak var PrevPB: UIButton!
     
     @IBOutlet weak var PlayStopOutput: UIButton!
     // 「再生/停止」ボタン押下
     @IBAction func PlayStopPB(_ sender: Any) {
-        if PlayBool == false {
-            PlayBool = true
-            PlayStopOutput.setTitle("停止", for: .normal)
-            PlayStopOutput.backgroundColor = UIColor.systemRed
-        }else{
-            PlayBool = false
-            PlayStopOutput.setTitle("再生", for: .normal)
-            PlayStopOutput.backgroundColor = UIColor.systemBackground
-        }
+        // 再生⇄停止 切替
+        PlayChange(PlaySelect: !PlayBool)
     }
 
     @objc func timerCounter() {
         if PlayBool == true{
             dispImageNo = dispImageNo + 1
             displayImage()
+        }
+    }
+    
+    // 再生⇄停止 切替
+    func PlayChange(PlaySelect:Bool){
+        if PlaySelect == true {
+            PlayBool = true
+            // 「進む」「戻る」を使用禁止
+            NextPB.isEnabled = false
+            PrevPB.isEnabled = false
+            PlayStopOutput.setTitle("停止", for: .normal)
+            PlayStopOutput.backgroundColor = UIColor.systemRed
+        }else{
+            PlayBool = false
+            // 「進む」「戻る」を使用許可
+            NextPB.isEnabled = true
+            PrevPB.isEnabled = true
+            PlayStopOutput.setTitle("再生", for: .normal)
+            PlayStopOutput.backgroundColor = UIColor.systemBackground
         }
     }
     

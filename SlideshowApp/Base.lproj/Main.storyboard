@@ -68,7 +68,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="O0i-my-Do3"/>
                     <connections>
+                        <outlet property="NextPB" destination="vHQ-Ct-rue" id="lS1-YB-HIZ"/>
                         <outlet property="PlayStopOutput" destination="010-GU-uY0" id="1RR-4d-Brl"/>
+                        <outlet property="PrevPB" destination="fid-xs-Oed" id="zsH-4i-d3r"/>
                         <outlet property="imageAria" destination="DHb-Nm-GR2" id="EPV-Nb-QXD"/>
                     </connections>
                 </viewController>
