@@ -62,10 +62,10 @@ class SlideView: UIViewController {
 
         // 画像の名前の配列
         let imageNameArray = [
-            "IMG_2665",
-            "IMG_3095",
-            "IMG_3249",
-            "IMG_3303"
+            "IMG_2665.jpeg",
+            "IMG_3095.jpeg",
+            "IMG_3249.jpeg",
+            "IMG_3303.jpeg"
         ]
 
 
@@ -100,6 +100,7 @@ class SlideView: UIViewController {
         }
     }
 
+    
     // 「戻る」ボタン押下
     @IBAction func actionPrevPB(_ sender: Any) {
         if PlayBool == false{           // スライド中は無効
@@ -108,10 +109,7 @@ class SlideView: UIViewController {
         }
     }
 
-    @IBOutlet weak var NextPB: UIButton!
-    @IBOutlet weak var PrevPB: UIButton!
     
-    @IBOutlet weak var PlayStopOutput: UIButton!
     // 「再生/停止」ボタン押下
     @IBAction func PlayStopPB(_ sender: Any) {
         // 再生⇄停止 切替
@@ -124,6 +122,10 @@ class SlideView: UIViewController {
             displayImage()
         }
     }
+    
+    @IBOutlet weak var NextPB: UIButton!
+    @IBOutlet weak var PrevPB: UIButton!
+    @IBOutlet weak var PlayStopOutput: UIButton!
     
     // 再生⇄停止 切替
     func PlayChange(PlaySelect:Bool){
